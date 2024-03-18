@@ -1,0 +1,19 @@
+lit 0 1 1 1 
+sto 0 1 1 1 
+lit 0 1 1 10 
+sto 0 1 1 10 
+lit 0 1 1 0 
+sto 0 1 1 0 
+lod 0 1 1 0 
+lod 0 1 2 0 0 
+opr 0 1 1 0 
+sto 0 1 1 0 
+lod 0 1 1 0 
+lit 0 1 2 0 1 
+opr 0 1 1 1 
+sto 0 1 1 1 
+lod 0 1 1 1 
+lod 0 1 2 1 1 
+opr 0 1 1 0 
+jpc 22 1 0 
+jmp 7 1 0 
