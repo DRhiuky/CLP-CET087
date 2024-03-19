@@ -156,7 +156,7 @@ int main() {
         {opr, 0, 0, "opr"},
     };
 
-    int instrucao_count = sizeof(programa) / sizeof(instrucao);
+    int instrucao_count = sizeof(code) / sizeof(instrucao);
 
     memcpy(code, programa, sizeof(programa));
 
