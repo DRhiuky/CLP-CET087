@@ -73,14 +73,12 @@ code[ 6].f = LOD; code[ 6].l = 0; code[ 6].a =  9; // carrega resultado da funca
 code[ 7].f = STO; code[ 7].l = 0; code[ 7].a =  4; // armazena resultado da funcao em 4
 code[ 8].f = OPR; code[ 8].l = 0; code[ 8].a =  0; // RETURN // main-FIM
     
-// Se n <= 1, retorna n
 code[ 9].f = INT; code[ 9].l = 0; code[ 9].a =  5; // função fib(n)
 code[10].f = LOD; code[10].l = 0; code[10].a =  3; // carrega o valor de n armazenado em 8
 code[11].f = LIT; code[11].l = 0; code[11].a =  1; // 1 no topo para comparar com n
 code[12].f = OPR; code[12].l = 0; code[12].a =  11; // compara se n <= 1
 code[13].f = JPC; code[13].l = 0; code[13].a = 24; // pula para o final se n <= 1
     
-// Se n > 1, calcula fibonacci(n - 1) + fibonacci(n - 2)
 code[14].f = LOD; code[14].l = 0; code[14].a =  3; // carrega o valor de n armazenado em 3
 code[15].f = LIT; code[15].l = 0; code[15].a =  1; // 1 no topo para fazer a subtração de n
 code[16].f = OPR; code[16].l = 0; code[16].a =  3; // subtrai 1 de n
@@ -93,7 +91,6 @@ code[21].f = OPR; code[21].l = 0; code[21].a =  3; // subtrai 2 de n
 code[22].f = STO; code[22].l = 0; code[22].a =  8; // armazena como parâmetro o novo valor
 code[23].f = CAL; code[23].l = 0; code[23].a =  9; // chama fib(n-2)
 
-// Soma os resultados da recursão
 code[24].f = LOD; code[24].l = 0; code[24].a =  9; // carrega o resultado da recursão para n-1
 code[25].f = LOD; code[25].l = 0; code[25].a =  8; // carrega o resultado da recursão para n-2
 code[26].f = OPR; code[26].l = 0; code[26].a =  2; // Soma os dois resultados
