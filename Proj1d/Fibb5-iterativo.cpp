@@ -75,8 +75,8 @@ void pcodevhw(){ // begin
     
     code[10].f = LOD; code[10].l = 0; code[10].a = 4; // carrega valor do espaco 4 no topo (i)
     code[11].f = LOD; code[11].l = 0; code[11].a = 3; // carrega valor do espaco 3 (n = 5)
-    code[12].f = OPR; code[12].l = 0; code[12].a = 11; // verifica se i <= n
-    code[13].f = JPC; code[13].l = 0; code[13].a = 30; // se falso, RETURN
+    code[12].f = OPR; code[12].l = 0; code[12].a = 11; // verifica se i >= n
+    code[13].f = JPC; code[13].l = 0; code[13].a = 30; // se verdadeiro, RETURN
     
     code[14].f = LOD; code[14].l = 0; code[14].a = 4; // carrega valor do espaco 4 no topo (i)
     code[15].f = LIT; code[15].l = 0; code[15].a = 1; // carrega 1 no topo
