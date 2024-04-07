@@ -39,3 +39,25 @@ int main() {
     fclose(file);
     return 0;
 }
+/*
+101010 --> reconhecida
+11011 --> reconhecida
+0 --> reconhecida
+1 --> reconhecida
+1111 --> reconhecida
+1010 --> reconhecida
+1001 --> reconhecida
+1100 --> reconhecida
+1011 --> reconhecida
+1110 --> reconhecida
+10201 --> reconhecida
+1010.1 --> rejeitada
+abc --> rejeitada
+1234 --> reconhecida
+5678 --> reconhecida
+9.01 --> rejeitada
+10.11 --> rejeitada
+2abc --> rejeitada
+3def --> rejeitada
+4ghi --> rejeitada
+*/
