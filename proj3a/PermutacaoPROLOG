@@ -1,0 +1,20 @@
+% Predicado para gerar permutações de uma lista
+perm([], []).
+perm(List, [Head|Perm]) :-
+    select(Head, List, Rest),
+    perm(Rest, Perm).
+
+% Predicado para verificar que todos os elementos são diferentes
+all_different([]).
+all_different([H|T]) :-
+    maplist(dif(H), T),
+    all_different(T).
+
+% Predicado principal para gerar permutações de uma lista de N elementos
+perm_n(N, Perm) :-
+    numlist(1, N, List),    % Cria uma lista de 1 a N
+    perm(List, Perm),       % Gera permutações da lista
+    all_different(Perm).    % Verifica se todos os elementos são diferentes
+
+% consultas
+% time((perm_n(21000, Perm))).

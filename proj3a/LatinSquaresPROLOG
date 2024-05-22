@@ -1,0 +1,63 @@
+% Predicado para gerar permutações de uma lista
+perm([], []).
+perm(List, [Head|Perm]) :-
+    select(Head, List, Rest),
+    perm(Rest, Perm).
+
+% Predicado para verificar se todos os elementos de uma lista são diferentes
+all_different([]).
+all_different([H|T]) :-
+    maplist(dif(H), T),
+    all_different(T).
+
+% Predicado para verificar se uma lista tem exatamente N elementos
+list_length(List, N) :- length(List, N).
+
+% Predicado para verificar se uma lista contém exatamente N diferentes elementos
+is_latin_square_row([], _).
+is_latin_square_row([Row | Rest], N) :-
+    list_length(Row, N),
+    all_different(Row),
+    is_latin_square_row(Rest, N).
+
+% Predicado para transpor uma matriz
+transpose([], []).
+transpose([F | Fs], Ts) :-
+    transpose(F, [F | Fs], Ts).
+
+transpose([], _, []).
+transpose([_|Rs], Ms, [Ts | Tss]) :-
+    lists_firsts_rests(Ms, Ts, Ms1),
+    transpose(Rs, Ms1, Tss).
+
+lists_firsts_rests([], [], []).
+lists_firsts_rests([[F | R] | Rest], [F | Fs], [R | Rs]) :-
+    lists_firsts_rests(Rest, Fs, Rs).
+
+% Predicado para verificar se uma matriz é um quadrado latino
+is_latin_square(Matrix, N) :-
+    length(Matrix, N),
+    maplist(list_length(N), Matrix),
+    transpose(Matrix, Transposed),
+    is_latin_square_row(Matrix, N),
+    is_latin_square_row(Transposed, N).
+
+% Predicado para gerar quadrados latinos de tamanho NxN
+latin_square(N, Square) :-
+    numlist(1, N, Row),
+    latin_square(N, N, Row, Square).
+
+latin_square(_, 0, _, []).
+latin_square(N, RowIndex, Row, [SquareRow | Rest]) :-
+    RowIndex > 0,
+    length(Row, N),
+    permutation(Row, SquareRow),
+    RowIndex1 is RowIndex - 1,
+    latin_square(N, RowIndex1, Row, Rest).
+
+% Predicado para gerar todos os quadrados latinos de tamanho N
+generate_latin_squares(N, Squares) :-
+    findall(Square, latin_square(N, Square), Squares).
+
+% consultas
+% time((latin_square(717, Square))).

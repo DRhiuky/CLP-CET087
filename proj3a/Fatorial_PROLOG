@@ -1,0 +1,15 @@
+% Predicado para calcular o fatorial de um número N
+factorial(1, 1).
+factorial(N, M) :-
+    N > 1,
+    N1 is N - 1,
+    factorial(N1, K),
+    M is N * K.
+
+% Predicado para calcular e imprimir o fatorial de um número N
+calculate_factorial(N) :-
+    factorial(N, Result),
+    format('O fatorial de ~d é: ~d', [N, Result]).
+
+% consultas
+% time((calculate_factorial(1472000))).
